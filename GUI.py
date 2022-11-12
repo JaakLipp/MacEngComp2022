@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
 import main.location as loc
-
+# from weather.weather import Weather
 
 class Monitor():
 
