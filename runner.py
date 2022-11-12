@@ -3,9 +3,11 @@ import GUI
 import ControlSystems.ControlSystem as cs
 
 def main():
-    weather = cs.WeatherSystem(51.5074, 0.1278)
+
+    weather = cs.WeatherSystem(51.5074, 0.1278, False)
     w = weather.get_weather()
     print(w)
+
     my_gui = GUI.Monitor()
 
     my_gui.display()
