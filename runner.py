@@ -1,12 +1,5 @@
 import main.location as loc
-from weather.weather import Weather
-# from GUI import *
 import GUI
-
-loc_getter = loc.Location(180,180,-180,-180)
-location = []
-longitude, latitude = 0, 0
-
 
 def main():
     my_gui = GUI.Monitor()

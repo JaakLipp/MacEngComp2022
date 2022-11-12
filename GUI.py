@@ -1,13 +1,12 @@
 from tkinter import *
 import tkinter as tk
-from tkinter import messagebox
 import main.location as loc
-from weather.weather import Weather
+# from weather.weather import Weather
 
 class Monitor():
 
     def __init__(self):
-        loc_getter = loc.Location(180,180,-180,-180)
+        loc_getter = loc.Location()
         location = loc_getter.get_random_location()
         longitude, latitude = location.coords[0][0], location.coords[0][1]
         self.longitude = longitude
@@ -32,13 +31,15 @@ class Monitor():
         position = tk.Label(root, text='Latitude: ' + str(self.latitude) + ' Longitude: ' + str(self.longitude), background='White')
         position.pack(side=tk.BOTTOM)
 
-        root.mainloop()
+        reset = tk.Button(root, text='Quit', background='White', command=root.destroy)
+        reset.pack(side=tk.RIGHT)
         
 
 
+        root.mainloop()
+        
 
-
-# def weather_data():
+        
 #     messagebox.showinfo("Number of Votes for Pineapple on Pizza: ", "Number of Votes for Pineapple on Pizza: " +str(votes[0]))
 # b = Button(root, text ="Weather Data",  height=100, width=200, command = )
 # b.pack()
