@@ -51,7 +51,7 @@ class WeatherSystem(ControlSystem):
             #if the status code is 200 meaning having trouble connecting to the API..."Satellite is down"
             if status_code != 200:
                 self.get_errors("Uh oh, there was a problem when connecting to the satellite. Please try again later")
-                quit()
+                return
             #get response in json format
             results = response.json()
             output = "" 
@@ -82,9 +82,9 @@ class WeatherSystem(ControlSystem):
     def get_Hazard_Conditions(self):
         #if a hazard condtion is met...return a message
         if('thunderstorm' in self.output):
-            return "Thunderstorms are expected in the area, please re route to a safe location"
+            return "Hazard"
         else:
-            return "No Hazard Conditions"
+            return "No Hazard"
 
     #method to get the past data from the file
     def get_correction(self):

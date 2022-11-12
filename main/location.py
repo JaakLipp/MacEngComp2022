@@ -3,6 +3,9 @@ from shapely.geometry import Point
 
 
 class Location():
+    '''
+    Class generates a random position with a user-given area
+    '''
 
     def __init__(self):
         self.max_x = int(input("Enter the maximum longitude you are sailing: "))
@@ -11,5 +14,6 @@ class Location():
         self.min_y = int(input("Enter the minimum latitude you are sailing: "))
 
     def get_random_location(self):
+        #gets a random point
         random_point = Point([random.uniform(self.min_x, self.max_x), random.uniform(self.min_y, self.max_y)])
         return random_point
