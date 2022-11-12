@@ -9,7 +9,7 @@ class ControlSystem(ABC):
         pass
     
     @abstractmethod
-    def get_damages(self):
+    def get_Hazard_Conditions(self):
         pass
 
     @abstractmethod
@@ -23,15 +23,21 @@ class ControlSystem(ABC):
     @abstractmethod
     def validate_sensor(self):
         pass
+
+    
     
 
 class WeatherSystem(ControlSystem):
     def __init__(self, longitude, latitude, connection):
         self.lattitude = latitude
         self.longitude = longitude
-        self.connection = True
+        self.connection = connection
+        self.output = ""
         self.__url = "https://api.openweathermap.org/data/2.5/forecast?lat=" + str(latitude) + "&lon=" + str(longitude) + "&appid=00faf35a94b60514362028e180e2aadd&units=metric"
 
+    def get_data(self):
+        return self.get_weather()
+    
     def get_weather(self):
         if self.connection:
             response = requests.request("GET", self.__url)
@@ -50,6 +56,7 @@ class WeatherSystem(ControlSystem):
                 
                 output += time + " " + str(temperature) + " " + str(weather) + "\n"
             self.write_to_file(output)
+            self.output = output
 
             return output
         else:
@@ -58,24 +65,29 @@ class WeatherSystem(ControlSystem):
     def get_errors(self, message):
         print(message)
 
-    def get_damages(self):
-        pass
+    def get_Hazard_Conditions(self):
+        if('thunderstorm' in self.output):
+            return "Thunderstorms are expected in the area, please re route to a safe location"
+        else:
+            return "No Hazard Conditions"
 
     def get_correction(self):
-        file = open("PastData.txt", "r")
-        data = file.read()
-        file.close()
+        #read all data from file using with open
+        self.get_errors("Power Faliure...loading past data results")
+        with open("PastData.txt", "r") as file:
+            data = file.read()
         return data
 
     def reset(self):
-        pass
+        file_to_delete = open("PastData.txt",'w')
+        file_to_delete.close()
 
     def validate_sensor(self):
         pass
 
     def write_to_file(self, data):
-        file = open("PastData.txt", "w")
-        file.write(data)
-        file.close()
+        #add data to file using with open
+        with open("PastData.txt", "a") as file:
+            file.write(data)
     
     
