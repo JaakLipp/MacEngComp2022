@@ -1,7 +1,7 @@
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
-import main.data
+import main.location
 
 root = tk.Tk()
 root.title("Ocean Monitor")
