@@ -48,7 +48,7 @@ class WeatherSystem(ControlSystem):
             
             output += time + " " + str(temperature) + " " + str(weather) + "\n"
 
-        print(output)
+        return output
     
     def get_errors(self):
         pass

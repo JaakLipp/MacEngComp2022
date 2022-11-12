@@ -1,8 +1,8 @@
 from tkinter import *
+from tkinter import messagebox
 import tkinter as tk
 import main.location as loc
-from ControlSystems.weather import Weather
-# from weather.weather import Weather
+
 
 class Monitor():
 
@@ -12,32 +12,42 @@ class Monitor():
         longitude, latitude = location.coords[0][0], location.coords[0][1]
         self.longitude = longitude
         self.latitude = latitude
+        self.root = tk.Tk()
 
+    def __quit__(self):
+        self.root.destroy()
+        
     def display(self):
-        root = tk.Tk()
-        root.title("Ocean Monitor")
-        root.geometry('600x400')
+        
+        self.root.title("Ocean Monitor")
+        self.root.geometry('600x400')
         bg = PhotoImage(file = 'styles\Picture1.png')
-        label1 = Label( root, image = bg)
+        label1 = Label( self.root, image = bg)
         label1.place(x = 0,y = 0)
 
 
         var = StringVar()
-        label = Label(root, textvariable=var, background='White')
+        label = Label(self.root, textvariable=var, background='White')
         var.set("OCEAN MONITORING")
         label.pack()
 
 
 
-        position = tk.Label(root, text='Latitude: ' + str(self.latitude) + ' Longitude: ' + str(self.longitude), background='White')
+        position = tk.Label(self.root, text='Latitude: ' + str(self.latitude) + ' Longitude: ' + str(self.longitude), background='White')
         position.pack(side=tk.BOTTOM)
 
-        reset = tk.Button(root, text='Quit', background='White', command=root.destroy)
-        reset.pack(side=tk.RIGHT, pady=100)
+        reset = tk.Button(self.root, text='Quit', background='White', command=self.__quit__)
+        reset.pack(side=tk.RIGHT, pady=150)
         
 
+        def __show_weather__():
+            messagebox.showinfo("Weather Report")
 
-        root.mainloop()
+        weather = tk.Button(self.root, text='Weather Report', background='White', command=__show_weather__)
+        weather.pack(side=tk.LEFT)
+
+
+        self.root.mainloop()
         
 
         
