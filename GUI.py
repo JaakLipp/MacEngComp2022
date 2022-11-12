@@ -2,7 +2,21 @@
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
-import main.data
+import runner as r
+import main.location as loc
+from weather.weather import Weather
+
+class Monitor():
+
+    def __init__(self):
+        loc_getter = loc.Location(180,180,-180,-180)
+        location = loc_getter.get_random_location()
+        longitude, latitude = location.coords[0][0], location.coords[0][1]
+        self.longitude = longitude
+        self.latitude = latitude
+
+    def display():
+
 
 root = tk.Tk()
 root.title("Ocean Monitor")
@@ -11,19 +25,20 @@ bg = PhotoImage(file = 'styles\Picture1.png')
 label1 = Label( root, image = bg)
 label1.place(x = 0,y = 0)
 
-# ppap_btn = PhotoImage(file='pen.png')
-# jeff_btn = PhotoImage(file='jeff.png')
-# croc_btn = PhotoImage(file='croc.png')
 
-# votes = prac.getVotes()
-# var = StringVar()
-# label = Label(root, textvariable=var)
-# var.set("Pineapple on Pizza")
-# label.pack()
+var = StringVar()
+label = Label(root, textvariable=var, background='White')
+var.set("OCEAN MONITORING")
+label.pack()
 
-# def pineappleOnPizza1():
+
+
+position = tk.Label(root, text='Latitude: ' + str(r.latitude) + ' Longitude: ' + str(r.longitude), background='White')
+position.pack(side=tk.BOTTOM)
+
+# def weather_data():
 #     messagebox.showinfo("Number of Votes for Pineapple on Pizza: ", "Number of Votes for Pineapple on Pizza: " +str(votes[0]))
-# b = Button(root, text ="PineappleOnPizza", image=ppap_btn, height=100, width=200, command = pineappleOnPizza1)
+# b = Button(root, text ="Weather Data",  height=100, width=200, command = )
 # b.pack()
 
 # var6 = StringVar()
