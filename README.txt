@@ -7,3 +7,6 @@ Language:
 YOU NEED TO INSTALL THE FOLLOWING:
 shapely.py
 
+
+To run:
+run runner.py and adhere to the prompts

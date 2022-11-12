@@ -17,7 +17,7 @@ class Monitor():
         
     def display(self):
         
-        self.root.title("Ocean Monitor")
+        self.root.title("A Sailor's Best Friend")
         self.root.geometry('600x400')
         bg = PhotoImage(file = 'styles\Picture1.png')
         label1 = Label( self.root, image = bg)
