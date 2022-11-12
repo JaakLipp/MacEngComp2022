@@ -1,7 +1,6 @@
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
-import runner as r
 import main.location as loc
 from weather.weather import Weather
 
@@ -14,26 +13,30 @@ class Monitor():
         self.longitude = longitude
         self.latitude = latitude
 
-    def display():
+    def display(self):
+        root = tk.Tk()
+        root.title("Ocean Monitor")
+        root.geometry('600x400')
+        bg = PhotoImage(file = 'styles\Picture1.png')
+        label1 = Label( root, image = bg)
+        label1.place(x = 0,y = 0)
 
 
-root = tk.Tk()
-root.title("Ocean Monitor")
-root.geometry('600x400')
-bg = PhotoImage(file = 'styles\Picture1.png')
-label1 = Label( root, image = bg)
-label1.place(x = 0,y = 0)
-
-
-var = StringVar()
-label = Label(root, textvariable=var, background='White')
-var.set("OCEAN MONITORING")
-label.pack()
+        var = StringVar()
+        label = Label(root, textvariable=var, background='White')
+        var.set("OCEAN MONITORING")
+        label.pack()
 
 
 
-position = tk.Label(root, text='Latitude: ' + str(r.latitude) + ' Longitude: ' + str(r.longitude), background='White')
-position.pack(side=tk.BOTTOM)
+        position = tk.Label(root, text='Latitude: ' + str(self.latitude) + ' Longitude: ' + str(self.longitude), background='White')
+        position.pack(side=tk.BOTTOM)
+
+        root.mainloop()
+        
+
+
+
 
 # def weather_data():
 #     messagebox.showinfo("Number of Votes for Pineapple on Pizza: ", "Number of Votes for Pineapple on Pizza: " +str(votes[0]))
@@ -69,10 +72,6 @@ position.pack(side=tk.BOTTOM)
 #    messagebox.showinfo("Number of Votes for Socks and Crocs Reform League: ", "Number of Votes for Socks and Crocs Reform League: " + str(votes[2]))
 # b3 = Button(root, text ="SocksandCrocks", image=croc_btn, height=100, width=200, command = socksandCrocsReform)
 # b3.pack()
-
-
-
-root.mainloop()
 
 
 
