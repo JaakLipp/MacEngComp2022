@@ -1,10 +1,10 @@
 import requests
 import datetime
 from time import strftime
-
+from ..ControlSystems import ControlSystem
 #Using longitude and latitude variables get weather data
 
-class Weather:
+class Weather(ControlSystem):
 
     def __init__(self, longitude, latitude):
         self.lattitude = latitude
@@ -29,5 +29,22 @@ class Weather:
             output += time + " " + str(temperature) + " " + str(weather) + "\n"
 
         print(output)
+    
+    def get_errors(self):
+        pass
+
+    def get_damages(self):
+        pass
+
+    def get_correction(self):
+        pass
+
+    def reset(self):
+        pass
+
+    def validate_sensor(self):
+        pass
+
+    
 
 
