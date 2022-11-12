@@ -32,7 +32,7 @@ class Monitor():
         position.pack(side=tk.BOTTOM)
 
         reset = tk.Button(root, text='Quit', background='White', command=root.destroy)
-        reset.pack(side=tk.RIGHT)
+        reset.pack(side=tk.RIGHT, pady=100)
         
 
 
