@@ -10,16 +10,16 @@ bg = PhotoImage(file = 'styles\Picture1.png')
 label1 = Label( root, image = bg)
 label1.place(x = 0,y = 0)
 
-# ppap_btn = PhotoImage(file='pen.png')
-# jeff_btn = PhotoImage(file='jeff.png')
-# croc_btn = PhotoImage(file='croc.png')
 
-# votes = prac.getVotes()
-# var = StringVar()
-# label = Label(root, textvariable=var)
-# var.set("Pineapple on Pizza")
-# label.pack()
+var = StringVar()
+label = Label(root, textvariable=var, background='White')
+var.set("OCEAN MONITORING")
+label.pack()
 
+
+
+position = tk.Label(root, text='Position: 123', background='White')
+position.pack(side=tk.BOTTOM)
 # def pineappleOnPizza1():
 #     messagebox.showinfo("Number of Votes for Pineapple on Pizza: ", "Number of Votes for Pineapple on Pizza: " +str(votes[0]))
 # b = Button(root, text ="PineappleOnPizza", image=ppap_btn, height=100, width=200, command = pineappleOnPizza1)
