@@ -10,15 +10,7 @@ def main():
 
     my_gui = GUI.Monitor()
 
-    my_gui.display()
-
-    # print("Latitude: " + str(location.coords[0][0]) + 10
-    #' Longitude: ' + str(location.coords[0][1]))
-    # w = Weather(longitude, latitude)
-    # w.get_weather()
-    # w = Weather(longitude, latitude)
-    # w.get_weather()
-    
+    my_gui.display()    
 
 if __name__ == main():
     main()
