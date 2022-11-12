@@ -1,6 +1,7 @@
 from tkinter import *
 import tkinter as tk
 import main.location as loc
+from ControlSystems.weather import Weather
 # from weather.weather import Weather
 
 class Monitor():

@@ -1,4 +1,6 @@
 import main.location as loc
+from weather.weather import Weather
+# from GUI import *
 import GUI
 
 def main():
