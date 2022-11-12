@@ -1,5 +1,7 @@
 import random
+
 from shapely.geometry import Point
+
 
 class Location():
 

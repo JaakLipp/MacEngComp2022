@@ -1,5 +1,5 @@
 import main.location as loc
-from weather.weather import Weather
+from ControlSystems.weather import Weather
 # from GUI import *
 import GUI
 
