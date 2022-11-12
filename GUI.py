@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
 import main.location as loc
-# from weather.weather import Weather
+import ControlSystems.ControlSystem as cs
 
 class Monitor():
 
@@ -41,11 +41,15 @@ class Monitor():
         
 
         def __show_weather__():
-            messagebox.showinfo("Weather Report")
+            weather = cs.WeatherSystem(51.5074, 0.1278)
+            w = weather.get_weather()
+            messagebox.showinfo("Weather Report", w)
 
         weather = tk.Button(self.root, text='Weather Report', background='White', command=__show_weather__)
         weather.pack(side=tk.LEFT)
 
+        SOS = tk.Button(self.root, text='SOS', background='Red', command=__show_weather__, fg='White')
+        SOS.pack(side=tk.LEFT, pady=100)
 
         self.root.mainloop()
         
